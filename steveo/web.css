@@ -1,0 +1,88 @@
+body{
+    background-image: url(images/tires.jpg);
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
+
+
+.org{
+    color: darkorange;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+     }
+
+     h1 {
+         font-size: 44px;
+     }
+     nav {
+         border-style: double;
+         border-color: darkorange;
+         width: 99%;
+         height: 50px;
+     }
+   ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: black;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+#tire {
+    color: black;
+    background: lightgray;
+    position: absolute;
+    top: 500px;
+    right: 010px;
+    width: 250px;
+    border: 6px solid darkorange;
+}
+#store{
+     position: relative;
+     top: 75px;
+    left: 150px;
+    border: 3px solid #73AD21;
+}
+#services {
+    color: darkorange;
+    float: right;
+    
+}
+ol {
+    font-size: 30px;
+}
+footer {
+    position: relative;
+    top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-style: italic;
+
+}#img2 {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
