@@ -30,11 +30,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                Lookup Weather for Postal Code:
+                Lookup Weather:
             </div>
             <div class="col-md-8" pull-right>
+                <button type="button" class="btn btn-defalt pull-right" id="remove">Remove cards</button>
                 <button type="button" class="btn btn-default pull-right" id="lookupWeatherForPostalCode">Lookup</button>
-                <label class="pull-right">Enter a postal code: <input type="text" id="postalCode" placeholder="postal code" /></label>
+                <label class="pull-right">Enter Zip Code, or City & State: <input type="text" id="postalCode" placeholder="zip code, or city & state" /></label>
 
 
             </div>
@@ -42,7 +43,7 @@
     </div>
 
     <script>
-        
+       
          $(function() {
             $("#lookupWeatherForPostalCode").on("click", lookupWeatherForPostalCode_Click)
         });
@@ -141,7 +142,7 @@ var city = " ";
     </div>
 
     <div id="templateDiv" style="display: none">
-        <div id="sunny" class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;"><button id="hide" class="btn btn-default pull-right glyphicon glyphicon-remove-sign"></button>
+        <div id="sunny" class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;">
             <div id="city" class="row" style="text-align: center;">"@@CITY@@"</div>
             <div id="temp" class="row" style="padding: 0 10px; text-align: center;  border-bottom: 2px solid black;">@@TEMP@@</div>
             <div id="brow" class="row">
@@ -154,8 +155,9 @@ var city = " ";
 
     <script type="text/javascript">
 
-      $("#hide").click(function(){
-                $("#templateDiv").hide("scale", 500)});
+       $("#remove").click(function(){
+        $("#sunny").remove();
+    });
      
      function generateCard(personInfo) {
             // Insert the original HTML into a string by reading from the div. I wrote the HTML first, tested it looked right, 
@@ -192,39 +194,6 @@ var city = " ";
        
 
     </script>
-
-
-    <!--<div id="sunny" class="col-md-3">
-    <h4 id="city"></h4><br/>
-    <h1 id="temp"><center></center></h1>
-    <h2 id="status"><center></center></h2>
-    <hr/>
-    <table align="center">
-		<thead>
-			<tr>
-				<th id="min"></th>
-				<th id="rain"></th>
-                <th id="max"></th>
-
-			</tr>
-		</thead>
-
-		<tbody>
-			
-			<tr>
-				<td> min </td>
-				<td>rain</td>
-                <td> max </td>
-
-			</tr>
-			</tbody>
-	</table>
-    </div>-->
-
-
-
-
-
 
 
 </body>
