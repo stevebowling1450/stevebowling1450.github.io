@@ -1,7 +1,7 @@
 #sunny{
     background-image: url(images/sunny.jpg);
-    background-size: 100%;
-    background-repeat:no-repeat;
+   background-size: cover;
+   background-repeat: no-repeat;
     height: 400px;
     border-radius: 10px;
 
@@ -13,8 +13,8 @@
 }
 body{
     background-image: url(images/storm.jpg);
-    background-size:100% 125%;
-    background-repeat:no-repeat;
+    background-size: cover;
+   background-repeat: no-repeat;
 
 }
 nav{
