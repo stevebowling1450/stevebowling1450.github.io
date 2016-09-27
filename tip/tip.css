@@ -14,7 +14,7 @@ body{
 
 #cal{
     background-image: url(paper.jpg) ;
-   background-size: contain;
+   background-size:cover;
    background-repeat: no-repeat;
     height: 500px;
     border-radius: 10px;
@@ -29,6 +29,9 @@ body{
 }
 #tipEach{
     font-size: xx-large;
-    color: lime;
+    color:firebrick;
     text-shadow: 2px 2px 2px black;
+}
+div{
+    text-align: center;
 }
