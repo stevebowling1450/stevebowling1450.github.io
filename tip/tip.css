@@ -4,15 +4,11 @@ body{
    background-repeat: no-repeat;
 }
    
-alertBox {
-    position:relative;
-    width:300px;
-    min-height:100px;
-    margin-top:50px;
-    border:1px solid #666;
-    background-color:#fff;
-    background-repeat:no-repeat;
-    background-position:20px 30px;
+#share{
+     padding:5px;
+    width: 30px;
+
+   
 }
 
 
