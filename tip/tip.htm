@@ -24,8 +24,8 @@
     <div class="row row-centered">
 
     <div div align="center" id="cal" class="col-md-5 col-sm-6 col-lg-4 col-xs-11">
-    <div class="col-md-12"> Tip Calculator <a href="http://www.sharethis.com/" target="_blank"><img class="pull-right" id="share" src="share.png"></a></div> <br/><br/>
-    <div class="col-md-12">How much was your bill? <br/> <input id="bill" type="text" maxlength="6"> </div>
+    <div class="col-md-11"> Tip Calculator </div> <br/><br/>
+    <div class="col-md-12">How much was your bill? <br/> <input onkeypress="return isNumberKey(event)" id="bill" placeholder="$" type="text" maxlength="6"> </div>
     <div class="col-md-12">How was the service?</div>
     <div class="dropdown"><br/>
     <select id="mySelect">
@@ -38,9 +38,17 @@
   </div><br/>
     <div class="col-md-12">Split how many ways? <br/><input id="split" maxlength="1" type="text" value=1 ></div>
     <br/>
-    <div class="col-md-12"><button class="btn btn-defalt btn-lg" onclick="calc()">Calculate</button></div>
+    <div class="col-md-12"><button class="btn btn-defalt btn-lg" onclick="calc()">Calculate</button><br/></div>
     <div id="tipEach" class="col-md-12"></div>
-    <div class="col-md-12"></div>
+    <div class="col-md-12"><button class="btn btn-defalt pull-left " onclick="startOver()">Clear</button><!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END --></div>
     
     
 </div>
