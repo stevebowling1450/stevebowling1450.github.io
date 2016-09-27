@@ -15,7 +15,7 @@ var tip=0
             tip = (tip+(bill/split));
         } 
     
-$("#tipEach").append("$"+tip.toFixed(2));    
+$("#tipEach").append("Tip $"+tip.toFixed(2));    
 }
 function startOver() {
     location.reload();
