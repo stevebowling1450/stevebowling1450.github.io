@@ -1,0 +1,38 @@
+body{
+    background-image: url(dinner.jpg) ;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+   
+alertBox {
+    position:relative;
+    width:300px;
+    min-height:100px;
+    margin-top:50px;
+    border:1px solid #666;
+    background-color:#fff;
+    background-repeat:no-repeat;
+    background-position:20px 30px;
+}
+
+
+#cal{
+    background-image: url(paper.jpg) ;
+   background-size: contain;
+   background-repeat: no-repeat;
+    height: 500px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    
+    font-family: cursive;
+    font-size:large;
+
+}
+#tipEach{
+    font-size: xx-large;
+    color: lime;
+    text-shadow: 2px 2px 2px black;
+}
