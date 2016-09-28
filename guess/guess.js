@@ -64,11 +64,45 @@
              document.getElementById("div3").style.background = "#ff0000"
         );
  }
+var t=10;
+ function decrementCount() {
+  if (t >=1){
+      t--;}
+  }
+   
+  
+ function times() {
+     $("#tries").empty();
+     $("#tries").append(t);
+    };
+    
  
  function checkall(){
      check1();
      check2();
      check3();
+     decrementCount();
+     times();
  };
+
+
+
+
+
+
+
+
+
+
+
+
+      function isNumberKey(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+  if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+  } else {
+      return true;
+  }
+        }
     
     

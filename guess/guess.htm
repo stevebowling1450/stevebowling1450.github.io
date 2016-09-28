@@ -20,12 +20,12 @@
 
 <body onload="number2()">
 
-     
-    <h1>You have X tries left</h1>
+     <h1>Number of tries left:</h1>
+    <h1 id="tries"></h1>
 <div class="col-md-12"> 
-<div class="col-md-4" id="div1"><input id=num1 type="number"></div>
-<div class="col-md-4" id="div2"><input id=num2 type="number"></div>
-<div class="col-md-4" id="div3"><input id=num3 type="number"></div>
+<div class="col-md-4" id="div1"><input onkeypress="return isNumberKey(event)" id=num1 type="text" maxlength="1"></div>
+<div class="col-md-4" id="div2"><input onkeypress="return isNumberKey(event)" id=num2 type="text" maxlength="1"></div>
+<div class="col-md-4" id="div3"><input onkeypress="return isNumberKey(event)" id=num3 type="text" maxlength="1"></div>
  </div>
 <button class="btn btn-defalt" onclick="checkall()">check</button>
 
