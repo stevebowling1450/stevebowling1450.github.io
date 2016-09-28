@@ -74,6 +74,11 @@ var t=10;
  function times() {
      $("#tries").empty();
      $("#tries").append(t);
+     if (t <=0){
+         alert("Game Over!!");}
+    if (n1==x && n2==y && n3==z){
+        alert("YOU WIN!!!!!!");
+    startOver();}
     };
     
  
@@ -85,6 +90,9 @@ var t=10;
      times();
  };
 
+function startOver() {
+    location.reload();
+};
 
 
 
