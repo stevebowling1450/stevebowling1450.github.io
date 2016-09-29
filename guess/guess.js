@@ -84,12 +84,13 @@ var t=10;
     
     };
     function win(){
+  if (n1==x && n2==y && n3==z){
+        alert("YOU WIN!!!!!!");
+    startOver();}
  if (t <=0){
          alert("Game Over!! Winning numbers is "+ x + y + z);
         startOver();}
-    if (n1==x && n2==y && n3==z){
-        alert("YOU WIN!!!!!!");
-    startOver();}
+   
     }
  
  function checkall(){
