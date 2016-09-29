@@ -1,0 +1,23 @@
+button{
+    height: 150px;
+    width: 150px;
+   
+}
+  table{
+    border-style: solid;
+    border-color: black;
+    max-width: 150px;
+  
+  }
+body{
+    background-image: url(doodle.jpg);
+}
+
+
+
+td{
+    
+    height: 150px;
+    width: 150px;
+    max-width: 150px;
+}
