@@ -22,6 +22,7 @@
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END --></div>
 <title>Tic Tac Toe</title>
+<script type="text/javascript" src="ttt.js"></script>
 </head>
 <h1 align="center"> <font color="red">Tic Tac Toe</h1>
 <body>
@@ -29,24 +30,23 @@
     <div>
 <table style="width:50%" align="center">
   <tr>
-    <td><button id="r1c1"></button></td>
-    <td><button id="r1c2"></button></td>
-    <td><button id="r1c3"></button></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r1c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r1c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r1c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+  <tr>
+    <td><select class="jumbotron" onchange="startgame()" id="r2c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r2c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r2c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
   </tr>
   <tr>
-    <td><button id="r2c1"></button></td>
-    <td><button id="r2c2"></button></td>
-    <td><button id="r2c3"></button></td>
-  </tr>
-  <tr>
-    <td><button id="r3c1"></button></td>
-    <td><button id="r3c2"></button></td>
-    <td><button id="r3c3"></button></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r3c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r3c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame()" id="r3c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
   </tr>
     </div>
 </table>
 <div align="center">
-<button id="start">Start</button>
+<button id="start" onclick="startgame()">Start</button>
 </div>    
   
 </body>
