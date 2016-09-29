@@ -69,7 +69,6 @@
      else(
              document.getElementById("div3").style.background = "#ff0000"
         );
-
  }
 var t=10;
  function decrementCount() {
@@ -81,16 +80,14 @@ var t=10;
  function times() {
      $("#tries").empty();
      $("#tries").append(t);
-    
-    };
-    function win(){
- if (t <=0){
+     if (t <=0){
          alert("Game Over!! Winning numbers is "+ x + y + z);
         startOver();}
     if (n1==x && n2==y && n3==z){
         alert("YOU WIN!!!!!!");
     startOver();}
-    }
+    };
+    
  
  function checkall(){
      check1();
@@ -98,8 +95,6 @@ var t=10;
      check3();
      decrementCount();
      times();
-     setTimeout(win, 200);
-     
  };
 
 function startOver() {
