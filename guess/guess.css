@@ -1,7 +1,8 @@
 body{
-    background-color: black;
+    background-image: url(question.jpg);
     color: white;
     text-align: center;
+    text-shadow: 4px 4px 4px darkblue;
 }
 div{
     height: 400px;
