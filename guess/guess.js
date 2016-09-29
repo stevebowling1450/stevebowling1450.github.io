@@ -5,7 +5,13 @@
     function number2() {
       x = Math.floor((Math.random() * 9) + 0);
       y = Math.floor((Math.random() * 9) + 0);
+       if (y == x){
+          number2();
       z = Math.floor((Math.random() * 9) + 0);
+       if (z == y || z == x){
+              number2();
+             }
+      }
       
     console.log(x);
     console.log(y);
