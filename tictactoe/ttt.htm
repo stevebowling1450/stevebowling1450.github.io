@@ -25,9 +25,10 @@
 <script type="text/javascript" src="ttt.js"></script>
 </head>
 <h1 align="center"> <font color="red">Tic Tac Toe</h1>
+
 <body>
 
-    <div>
+    <div id="game">
 <table style="width:50%" align="center">
   <tr>
     <td><select class="jumbotron" onchange="startgame()" id="r1c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
@@ -46,9 +47,15 @@
     </div>
 </table>
 <div align="center">
-<button id="start" onclick="startOver()">Start Over</button>
+<button id="start" onclick="restart()">Start Over</button>
 </div>    
-  
+  <div>
+<h3 class="pull-right">O wins</h3>
+<div class="pull-right" id="oscore"></div>
+<div id="xscore"></div>
+<h3>X wins</h3>
+
+</div>
 </body>
 
 </html>
