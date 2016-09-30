@@ -1,11 +1,9 @@
-button{
-    height: 150px;
-    width: 150px;
-   
-}
+
   table{
     background-color: lightblue;
-    max-width: 460px;
+    max-width: 320px;
+    max-height: 280px;
+    
   
   }
 body{
@@ -24,14 +22,14 @@ body{
 td{
     border-style: solid;
     border-color: black;
-    height: 150px;
-    width: 150px;
-    max-width: 150px;
+    height: 80px;
+    width: 100px;
+    max-width: 100px;
 }
 select{
-    width: 150px;
-    height: 120px;
-    font-size: 100px;
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
 }
 #score{
     font-size: 34px;

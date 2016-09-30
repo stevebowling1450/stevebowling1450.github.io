@@ -27,7 +27,7 @@
 <title>Tic Tac Toe</title>
 <script type="text/javascript" src="ttt.js"></script>
 </head>
-<h1 align="center"> <font color="red">Tic Tac Toe</h1>
+<h1 align="center"> <font color="red">Tic Tac Toe <br/>X starts the game!!</h1>
 <div id="score">
 <h2 class="pull-right">O wins</h2>
 <div class="pull-right" id="oscore"></div>
@@ -40,18 +40,18 @@
     <div id="game">
 <table style="width:50%" align="center">
   <tr>
-    <td><select class="jumbotron" onchange="startgame()" id="r1c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
-    <td><select class="jumbotron" onchange="startgame()" id="r1c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
-    <td><select class="jumbotron" onchange="startgame()" id="r1c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d1()" id="r1c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d2()" id="r1c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d3()" id="r1c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
   <tr>
-    <td><select class="jumbotron" onchange="startgame()" id="r2c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
-    <td><select class="jumbotron" onchange="startgame()" id="r2c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
-    <td><select class="jumbotron" onchange="startgame()" id="r2c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d4()" id="r2c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d5()" id="r2c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d6()" id="r2c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
   </tr>
   <tr>
-    <td><select class="jumbotron" onchange="startgame()" id="r3c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
-    <td><select class="jumbotron" onchange="startgame()" id="r3c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
-    <td><select class="jumbotron" onchange="startgame()" id="r3c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d7()" id="r3c1"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d8()" id="r3c2"><option></option><option value=1>X</option><option value=5>O</option></select></td>
+    <td><select class="jumbotron" onchange="startgame(); d9()" id="r3c3"><option></option><option value=1>X</option><option value=5>O</option></select></td>
   </tr>
     </div>
 </table>

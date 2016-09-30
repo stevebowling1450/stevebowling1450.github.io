@@ -62,19 +62,24 @@ function startgame(){
 else if (+r1c1 + +r1c2 + +r1c3 + +r2c1 + +r2c2 + +r2c3 + +r3c1 + +r3c2 + +r3c3 == 25){
     alert(" The CAT wins");
     startOver();}
+else if (+r1c1 + +r1c2 + +r1c3 + +r2c1 + +r2c2 + +r2c3 + +r3c1 + +r3c2 + +r3c3 == 29){
+    alert(" The CAT wins");
+    startOver();}
 console.log(+r1c1 + +r1c2 + +r1c3 + +r2c1 + +r2c2 + +r2c3 + +r3c1 + +r3c2 + +r3c3 );
+    
+
 }
 
 function startOver() {
-    $("#r1c1").val(0);
-    $("#r1c2").val(0);
-    $("#r1c3").val(0);
-    $("#r2c1").val(0);
-    $("#r2c2").val(0);
-    $("#r2c3").val(0);
-    $("#r3c1").val(0);
-    $("#r3c2").val(0);
-    $("#r3c3").val(0);
+    $("#r1c1").val(0); $('#r1c1').attr('disabled', false );
+    $("#r1c2").val(0); $('#r1c2').attr('disabled', false );
+    $("#r1c3").val(0); $('#r1c3').attr('disabled', false );
+    $("#r2c1").val(0); $('#r2c1').attr('disabled', false );
+    $("#r2c2").val(0); $('#r2c2').attr('disabled', false );
+    $("#r2c3").val(0); $('#r2c3').attr('disabled', false );
+    $("#r3c1").val(0); $('#r3c1').attr('disabled', false );
+    $("#r3c2").val(0); $('#r3c2').attr('disabled', false );
+    $("#r3c3").val(0); $('#r3c3').attr('disabled', false );
 };
 
 function xwin(){
@@ -103,3 +108,30 @@ function os() {
     function restart() {
     location.reload();}
     
+    function d1(){
+         $('#r1c1').attr('disabled', 'disabled');
+    }
+    function d2(){
+         $('#r1c2').attr('disabled', 'disabled');
+    }
+    function d3(){
+         $('#r1c3').attr('disabled', 'disabled');
+    }
+    function d4(){
+         $('#r2c1').attr('disabled', 'disabled');
+    }
+    function d5(){
+         $('#r2c2').attr('disabled', 'disabled');
+    }
+    function d6(){
+         $('#r2c3').attr('disabled', 'disabled');
+    }
+    function d7(){
+         $('#r3c1').attr('disabled', 'disabled');
+    }
+    function d8(){
+         $('#r3c2').attr('disabled', 'disabled');
+    }
+    function d9(){
+         $('#r3c3').attr('disabled', 'disabled');
+    }
