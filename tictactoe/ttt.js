@@ -8,6 +8,7 @@ var r3c1=0;
 var r3c2=0;
 var r3c3=0;
 function startgame(){
+    myFunction();
     r1c1= $("#r1c1").val();
     r1c2= $("#r1c2").val();
     r1c3= $("#r1c3").val();
@@ -110,6 +111,7 @@ function os() {
     
     function d1(){
          $('#r1c1').attr('disabled', 'disabled');
+         
     }
     function d2(){
          $('#r1c2').attr('disabled', 'disabled');
@@ -135,3 +137,11 @@ function os() {
     function d9(){
          $('#r3c3').attr('disabled', 'disabled');
     }
+    var o;
+    var x;
+    x=true;
+    o=true;
+    function myFunction() {
+     o = document.getElementById("r1c2").options[2].disabled = true;
+     x = document.getElementById("r1c2").options[1].disabled = true;
+}
