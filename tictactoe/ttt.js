@@ -65,9 +65,6 @@ else if (+r1c1 + +r1c2 + +r1c3 + +r2c1 + +r2c2 + +r2c3 + +r3c1 + +r3c2 + +r3c3 =
 console.log(+r1c1 + +r1c2 + +r1c3 + +r2c1 + +r2c2 + +r2c3 + +r3c1 + +r3c2 + +r3c3 );
 }
 
-
-
-
 function startOver() {
     $("#r1c1").val(0);
     $("#r1c2").val(0);
@@ -93,14 +90,14 @@ function owin(){
 var xscr=0
 function xs() {
     xscr++;
-     $("#xscore").append(xscr);
+     $("#xscore").append("# "+xscr);
      startOver();
     };
     
     var oscr=0
 function os() {
      oscr++;
-     $("#oscore").append(oscr);
+     $("#oscore").append("# "+oscr);
      startOver();
     };
     function restart() {
