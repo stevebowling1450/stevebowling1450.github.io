@@ -1,76 +1,100 @@
 <html>
-<html>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-  crossorigin="anonymous">
-
-
-<!-- Latest compiled and minified JavaScript -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>
-
-
-<style> 
-  #map {
-        height: 75%;
-        width: 400px;
-        min-width: 300px;
-        border-style: solid;
-        border-color: black;
-        border-radius: 10px;
-      }
-</style>
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      Lookup Map:
-    </div>
-    <div class="col-md-8" pull-right>
-
-      <button onclick="print()"> Lookup</button>
-      <label class="pull-left">Enter Zip Code, or City & State: <input type="text" id="postalCode" placeholder="zip code, or city & state" /></label>
-
-
-    </div>
-  </div>
-</div>
-
-
-
 
 <head>
-  <title>Simple Map</title>
-  <meta name="viewport" content="initial-scale=1.0">
-  <meta charset="utf-8">
+
+    <!-- Include jQuery first so Bootstrap doesn't complain -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="map.css">
 
 </head>
 
 <body>
-  <div id="main"><h3 id="city"></h3>
-  <div id="map"></div>
-  </div>
-  <script>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                Lookup Map:
+            </div>
+            <div class="col-md-8" pull-right>
+
+                <button type="button" onclick="print()"> Lookup</button>
+                <label class="pull-left">Enter Zip Code, or City & State: <input type="text" id="postalCode" placeholder="zip code, or city & state" /></label>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row" id="cards">
+        </div>
+    </div>
+
+    <div id="templateDiv" style="display: none">
+        <div class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;"><button type="button" class="btn btn-defalt pull-right glyphicon glyphicon-remove-sign" id="remove"></button>
+            <div class="row" style="padding: 15px 10px; text-align: center;">@@LOCATION@@</div>
+            <div id="map" class="row" style="padding: 15px 10px; text-align: center;">@@IMGURL@@</div>
+             
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).on('click', '#remove', function () {
+       $(this).closest('div').remove();
+   });
+
+        function generateCard(personInfo) {
+            var template = $("#templateDiv").html(); 
+            template = template.replace("@@IMGURL@@", personInfo.profilePhoto);
+            template = template.replace("@@LOCATION@@",city);
+            template = template.replace("@@MAP@@",map);
+            return template;
+        }
+
+        function testGenerateCard() {
+            var sampleData = {
+                cityState : city ,
+                profilePhoto: map,
+              
+            };
+            var html = generateCard(sampleData);
+            $("#cards").append(html);
+              initMap();
+             console.log (map);
+        }
+        
+                
+
+    
+    
+var city = "";
 var x= 37.7724758;
-var y= -82.85329279999999;
+var y= -82.85329279;
         function done(reply){
        lata=reply.results["0"].geometry.location.lat;
        long=reply.results["0"].geometry.location.lng;
-  var city =reply.results["0"].formatted_address;
-       $("#city").append(city);
+       city=reply.results["0"].formatted_address;
        console.log(city);
        console.log(long); 
        console.log(lata);
       
-x= lata;
-y= long;
+    x= lata;
+    y= long;
        initMap(x , y);
-        } 
+       testGenerateCard(city);        } 
         
         
         function lookup(){ 
@@ -82,10 +106,12 @@ y= long;
         
         $.ajax(ask);
         };
+
 function print(){
+
     lookup();
   initMap();
-$("#city").empty();}
+  }
     
       var map;
       
@@ -98,16 +124,15 @@ $("#city").empty();}
         });
          marker = new google.maps.Marker({
           map: map,
-          draggable: true,
+          draggable: false,
           animation: google.maps.Animation.DROP,
           position: {lat: x , lng: y}
         });
-        
+       map++;
+       
       }
         
     </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN9350ml9Au-ceEYyjEz5sZIWJ4zaTYx4&callback=initMap" async
-    defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN9350ml9Au-ceEYyjEz5sZIWJ4zaTYx4&callback=initMap" async
+        defer></script>
 </body>
-
-</html>

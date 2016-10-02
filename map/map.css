@@ -1,3 +1,7 @@
 #map{
     height: 450px;
 }
+
+body{
+    background-image: url(background.jpg);
+}
