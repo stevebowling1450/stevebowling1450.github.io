@@ -44,7 +44,7 @@
     </div>
 
     <div id="templateDiv" style="display: none">
-        <div id="map1" class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;"><button type="button" class="btn btn-defalt pull-right glyphicon glyphicon-remove-sign" id="remove"></button>
+        <div class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;"><button type="button" class="btn btn-defalt pull-right glyphicon glyphicon-remove-sign" id="remove"></button>
             <div class="row" style="padding: 15px 10px; text-align: center;">@@LOCATION@@</div>
             <div id="map" class="row" style="padding: 15px 10px; text-align: center;">@@IMGURL@@</div>
              
@@ -72,7 +72,6 @@
             };
             var html = generateCard(sampleData);
             $("#cards").append(html);
-            google.maps.event.trigger(map, "resize");
               initMap();
              console.log (map);
         }
