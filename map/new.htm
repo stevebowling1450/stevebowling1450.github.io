@@ -1,0 +1,139 @@
+<html>
+
+<head>
+
+    <!-- Include jQuery first so Bootstrap doesn't complain -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="map.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                Lookup Map:
+            </div>
+            <div class="col-md-8" pull-right>
+
+                <button type="button" onclick="print()"> Lookup</button>
+                <label class="pull-left">Enter Zip Code, or City & State: <input type="text" id="postalCode" placeholder="zip code, or city & state" /></label>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row" id="cards">
+        </div>
+    </div>
+
+    <div id="templateDiv" style="display: none">
+        <div id="map1" class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;"><button type="button" class="btn btn-defalt pull-right glyphicon glyphicon-remove-sign" id="remove"></button>
+            <div class="row" style="padding: 15px 10px; text-align: center;">@@LOCATION@@</div>
+            <div id="map" class="row" style="padding: 15px 10px; text-align: center;">@@IMGURL@@</div>
+             
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).on('click', '#remove', function () {
+       $(this).closest('div').remove();
+   });
+
+        function generateCard(personInfo) {
+            var template = $("#templateDiv").html(); 
+            template = template.replace("@@IMGURL@@", personInfo.profilePhoto);
+            template = template.replace("@@LOCATION@@",city);
+            template = template.replace("@@MAP@@",map);
+            return template;
+        }
+
+        function testGenerateCard() {
+            var sampleData = {
+                cityState : city ,
+                profilePhoto: map,
+              
+            };
+            var html = generateCard(sampleData);
+            $("#cards").append(html);
+            google.maps.event.trigger(map, "resize");
+              initMap();
+             console.log (map);
+        }
+        
+                
+
+    
+    
+var city = "";
+var x= 37.7724758;
+var y= -82.85329279;
+        function done(reply){
+       lata=reply.results["0"].geometry.location.lat;
+       long=reply.results["0"].geometry.location.lng;
+       city=reply.results["0"].formatted_address;
+       console.log(city);
+       console.log(long); 
+       console.log(lata);
+      
+    x= lata;
+    y= long;
+       initMap(x , y);
+       testGenerateCard(city);        } 
+        
+        
+        function lookup(){ 
+             var zip= $("#postalCode").val();
+          var zipcode= ("https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&&key=AIzaSyCNRRK2Bi38Qu18i6J6D0QQ22W533WS7mw")
+            var ask= {url:(zipcode),
+    success: done
+            };
+        
+        $.ajax(ask);
+        };
+
+function print(){
+
+    lookup();
+  initMap();
+  }
+    
+      var map;
+      
+      function initMap() {
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: x , lng: y },
+          zoom: 8
+
+        });
+         marker = new google.maps.Marker({
+          map: map,
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: {lat: x , lng: y}
+        });
+       
+       
+      }
+        
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN9350ml9Au-ceEYyjEz5sZIWJ4zaTYx4&callback=initMap" async
+        defer></script>
+</body>
