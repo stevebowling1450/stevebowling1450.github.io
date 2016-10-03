@@ -46,40 +46,33 @@
     <div id="templateDiv" style="display: none">
         <div class="col-md-3" style="margin: 20px; border-radius: 10px; border: 1px solid #333333;"><button type="button" class="btn btn-defalt pull-right glyphicon glyphicon-remove-sign" id="remove"></button>
             <div class="row" style="padding: 15px 10px; text-align: center;">@@LOCATION@@</div>
-            <div id="map" class="row" style="padding: 15px 10px; text-align: center;">@@IMGURL@@</div>
+            <div id="newmap" class="row" style="padding: 15px 10px; text-align: center;"></div>
+            <div id="@@MAP@@" class="row" style="padding: 15px 10px; text-align: center;"></div>
         </div>
     </div>
 
     <script type="text/javascript">
+
+    var newmap= 0;
     $(document).on('click', '#remove', function () {
        $(this).closest('div').remove();
    });
 
         function generateCard() {
             var template = $("#templateDiv").html(); 
-            template = template.replace("@@MYMAP@@",map);
             template = template.replace("@@LOCATION@@",city);
-            template = template.replace("@@MAP@@",map);
+            template = template.replace("@@MAP@@",newmap);
             return template;
             console.log(city);
         }
 
         function testGenerateCard() {
-            var sampleData = {
-                cityState : city ,
-                profilePhoto: "#map",
-              
-            };
-            var html = generateCard(sampleData);
+            var html = generateCard(newmap);
             $("#cards").append(html);
+             google.maps.event.trigger(newmap, "resize");
               initMap();
-             console.log (map);
         }
-        
-                
-
-    
-    
+                 
 var city = "";
 var x= 37.7724758;
 var y= -82.85329279;
@@ -111,24 +104,24 @@ function print(){
 
     lookup();
   initMap();
-  generateCard();
+  generateCard(newmap);
   }
     
       
       function initMap() {
         
-       var map = new google.maps.Map(document.getElementById('map'), {
+       var map = new google.maps.Map(document.getElementById('newmap'), {
           center: {lat: x , lng: y },
           zoom: 8
-
         });
+          
          marker = new google.maps.Marker({
           map: map,
           draggable: false,
           animation: google.maps.Animation.DROP,
           position: {lat: x , lng: y}
         });
-
+        newmap++;
        
       }
         
