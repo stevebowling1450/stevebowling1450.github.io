@@ -58,7 +58,7 @@
        $(this).closest('div').remove();
    });
 
-        function generateCard() {
+        function generateCard(newmap) {
             var template = $("#templateDiv").html(); 
             template = template.replace("@@LOCATION@@",city);
             template = template.replace("@@MAP@@",newmap);
@@ -86,8 +86,8 @@ var y= -82.85329279;
       
     x= lata;
     y= long;
-       initMap(x , y);
-       testGenerateCard(city);        } 
+       //initMap(x , y);
+       testGenerateCard();        } 
         
         
         function lookup(){ 
@@ -103,8 +103,7 @@ var y= -82.85329279;
 function print(){
 
     lookup();
-  initMap();
-  generateCard(newmap);
+ 
   }
     
       
