@@ -1,6 +1,8 @@
-#newmap{
-    height: 450px;
+#main{
+    border-style: solid;
+    border-color: black;
 }
+
 
 body{
     background-image: url(background.jpg);
