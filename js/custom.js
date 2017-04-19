@@ -16,10 +16,6 @@
     });
        
 
-       function sendMail() {
-    location.reload();
-};
-
     // Instantiate MixItUp:
     $('#Container').mixItUp();
 
@@ -59,10 +55,5 @@
             // instead of a settings object
         ]
     });
-
-
-
-
-    
     
 })(jQuery);
